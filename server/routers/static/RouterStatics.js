@@ -1,6 +1,8 @@
 var express = require('express');
 
-function RouterStatics(App) {
+function RouterStatics(app) {
 
-	app.use(express.static(__dirname + '/client'));
+	app.use('/static', express.static(__dirname + '/public'));
 }
+
+module.exports = RouterStatics;

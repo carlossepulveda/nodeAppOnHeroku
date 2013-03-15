@@ -1,20 +1,11 @@
 var express = require('express');
-
-var app = express.createServer(express.logger());
-
-app.get('/', function(request, response) {
-  response.send('Aplicacion corriendo en el puerto 5000');
-});
-
-app.get('/login', function(request, response) {
-  response.send('pagina de login');
-});
-
-app.get('/logout', function(request, response) {
-  response.send('pagina de logout');
-});
+var RouterStatics = require('./routers/static/RouterStatics.js');
 
 var port = process.env.PORT || 5000;
+var app = express.createServer(express.logger());
+
+var routerStatics = new RouterStatics(app);
+
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
